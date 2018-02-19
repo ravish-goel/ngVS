@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ViewsModule } from './views/views.module';
+//import { ViewsModule } from './views/views.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-
+import {ModalComponent} from '../app/views/generic/modal/modal.component'
 
 //services
 import { RestClientService } from './services/rest/rest-client.service';
@@ -25,12 +25,21 @@ import { ModalModule } from 'ng-bootstrap/modal';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent }
+    
+  {
+    path: 'home',
+    loadChildren: 'app/views/home/home.module#HomeModule'
+  },
+  {
+    path: 'login',
+    loadChildren: 'app/views/login/login.module#LoginModule'
+  },
+ 
 ];
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
