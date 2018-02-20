@@ -4,6 +4,7 @@
     "name": "ng-vs"
   },
   "apps": [
+    {
       "root": "src",
       "outDir": "dist",
       "assets": [
